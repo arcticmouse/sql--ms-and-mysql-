@@ -1,0 +1,18 @@
+SELECT TOP 1000 [id]
+      ,[objectID]
+      ,[category]
+      ,[object]
+      ,[modDate]
+      ,[liveVersion]
+  FROM [web].[dbo].[JaduHomepageVersions]
+  where object like '%BLAH%'
+
+
+SELECT TOP 1000 [id]
+      ,[objectID]
+      ,[category]
+      ,[object]
+      ,[modDate]
+      ,[liveVersion]
+  FROM [web].[dbo].[JaduHomepageVersions]
+  where object like '%BLAH%'
