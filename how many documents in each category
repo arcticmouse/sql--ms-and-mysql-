@@ -1,0 +1,4 @@
+SELECT categoryID, COUNT(*) 
+FROM JaduDocumentsCategories
+GROUP BY categoryID
+ORDER BY categoryID ASC
