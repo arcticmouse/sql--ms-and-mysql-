@@ -1,0 +1,3 @@
+SELECT c.categoryID, c.itemID, d.id, d.title, p.documentID, p.title, p.pageNumber
+FROM JaduDocumentsCategories c INNER JOIN JaduDocumentHeaders d ON c.itemID = d.id INNER JOIN JaduDocumentPages p ON d.id = p.documentID
+WHERE categoryID != '0'
