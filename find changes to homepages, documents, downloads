@@ -1,0 +1,15 @@
+select DATEPART(YY,actiontimestamp) as yr, 
+	   DATEPART(mm,actionTimestamp) as mo, 
+	   action, 
+	   dbtable,
+	   COUNT(id) as total
+from JaduAdminPageActions
+where (title not like 'admin%') 
+		and ((dbTable = 'jaduhomepages') 
+		OR (dbTable = 'jadudocumentpages') 
+		OR (dbTable = 'jadudownloads'))
+group by DATEPART(YY,actiontimestamp),
+		 DATEPART(mm,actionTimestamp),
+		 action,
+		 dbtable
+
