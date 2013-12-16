@@ -1,0 +1,3 @@
+SELECT COUNT(DISTINCT adminID)
+FROM JaduAdminActivityLog
+WHERE activityTimestamp > '2013-06-01'
