@@ -1,0 +1,8 @@
+	SELECT AVG(DATEPART(dy, modDate)) as average
+	FROM JaduHomepageVersions
+	WHERE (modDate > '06-01-2013')
+	
+	
+	SELECT AVG(DATEPART(dy, modDate)) as average
+	FROM JaduDocumentPages
+	WHERE (modDate > '06-01-2013')
