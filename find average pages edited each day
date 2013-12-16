@@ -1,8 +1,23 @@
-	SELECT AVG(DATEPART(dy, modDate)) as average
-	FROM JaduHomepageVersions
-	WHERE (modDate > '06-01-2013')
-	
-	
-	SELECT AVG(DATEPART(dy, modDate)) as average
-	FROM JaduDocumentPages
-	WHERE (modDate > '06-01-2013')
+(
+SELECT COUNT(DISTINCT CONVERT(varchar(10), JaduHomepageVersions.moddate)) as numOfDates, COUNT(DISTINCT JaduHomepageVersions.objectID) as numOfPagesChanged
+FROM JaduHomepageVersions
+WHERE modDate > '06-01-2013'
+)
+
+UNION
+
+(
+SELECT COUNT(DISTINCT CONVERT(varchar(10), JaduDocumentPages.moddate)) as numOfDates, 
+		(
+			SELECT COUNT(things)
+				FROM (
+					SELECT DISTINCT documentID, pageNumber AS things
+					FROM JaduDocumentPages 
+					WHERE modDate > '06-01-2013' AND documentID != '-1'
+				)
+				AS things
+		)
+FROM JaduDocumentPages
+WHERE modDate > '06-01-2013' 
+)
+
