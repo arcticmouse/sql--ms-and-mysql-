@@ -1,0 +1,5 @@
+select *
+from wp_2_posts
+where post_type = 'story'
+group by post_title
+having count(*) > 1
