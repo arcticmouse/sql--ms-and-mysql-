@@ -3,3 +3,17 @@ from wp_2_posts
 where post_type = 'story'
 group by post_title
 having count(*) > 1
+
+
+
+
+delete from wp_16_posts 
+where post_title in (
+	select post_title 
+	from (
+		select * 
+		from wp_16_posts 
+		group by post_title
+		having count(*) > 1
+	) as postdupes
+)
